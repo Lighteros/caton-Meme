@@ -1,7 +1,7 @@
 const CATON = {
   name: "caton",
   symbol: "caton",
-  ca: "",
+  ca: "2hYQb2XQCbB5W3GqozE3eCDae43hX4m4UGzeaaPkpump",
   x: "https://x.com/catonmeme",
   pumpSwapBase: "https://swap.pump.fun",
   dexBase: "https://dexscreener.com/solana",
