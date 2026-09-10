@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>caton | $caton on Solana</title>
+  <meta name="description" content="The cat that grabbed the baton and ran straight onto Solana." />
+  <meta property="og:title" content="caton | $caton" />
+  <meta property="og:description" content="The cat that grabbed the baton and ran straight onto Solana." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#2FBE4A" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-wash" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="paw-field" aria-hidden="true"></canvas>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+  <div class="orb orb-c" aria-hidden="true"></div>
+  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+
+  <svg class="hill-line" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+    <path class="hill hill-back" d="M0,110 C180,70 320,150 520,100 C720,50 880,140 1100,90 C1260,55 1360,80 1440,70 L1440,180 L0,180 Z"></path>
+    <path class="hill hill-front" d="M0,140 C220,100 400,170 640,125 C880,80 1040,160 1240,120 C1340,100 1400,115 1440,110 L1440,180 L0,180 Z"></path>
+  </svg>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#hero">
+      <span class="brand-disc">
+        <img src="logo.png" alt="caton logo" />
+      </span>
+      <span class="brand-word">caton</span>
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#about">About</a>
+      <a href="#howtobuy">How to Buy</a>
+      <a href="#chart">Chart</a>
+      <a href="#joinus">Join Us</a>
+    </nav>
+    <div class="nav-end">
+      <a class="icon-chip" data-link="x" href="https://x.com/catonmeme" target="_blank" rel="noopener" aria-label="caton on X">
+        <img src="icons/x.svg" alt="" />
+      </a>
+      <a class="btn btn-green btn-sm" data-link="buy" href="https://swap.pump.fun" target="_blank" rel="noopener">
+        <img src="icons/pumpswap.svg" alt="" class="btn-ico" />
+        Buy
+      </a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="lane-wrap" aria-hidden="true">
+        <div class="lane"></div>
+        <div class="lane"></div>
+        <div class="lane"></div>
+      </div>
+      <div class="hero-grid">
+        <div class="hero-portrait reveal">
+          <div class="portrait-glow"></div>
+          <div class="portrait-ring ring-slow"></div>
+          <div class="portrait-ring ring-fast"></div>
+          <div class="baton-float" aria-hidden="true">
+            <svg viewBox="0 0 80 120" fill="none">
+              <rect x="34" y="8" width="12" height="58" rx="6" fill="#F7F7F4"/>
+              <rect x="34" y="60" width="12" height="48" rx="6" fill="#2FBE4A"/>
+              <rect x="18" y="58" width="44" height="14" rx="7" fill="#2FBE4A"/>
+            </svg>
+          </div>
+          <div class="portrait-plate">
+            <img src="logo.png" alt="caton holding the baton" />
+          </div>
+        </div>
+        <div class="hero-copy reveal delay-1">
+          <p class="kicker">Solana memecoin</p>
+          <h1 class="wordmark" aria-label="caton">
+            <span>c</span><span>a</span><span>t</span><span>o</span><span>n</span>
+          </h1>
+          <p class="ticker">$caton</p>
+          <p class="tagline">The cat that grabbed the baton and ran straight onto Solana.</p>
+          <div class="ca-row">
+            <span class="ca-label">CA</span>
+            <code id="ca-display">Loading contract</code>
+            <button class="copy-btn" id="copy-ca" type="button">Copy</button>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-green btn-lg" data-link="buy" href="https://swap.pump.fun" target="_blank" rel="noopener">
+              <img src="icons/pumpswap.svg" alt="" class="btn-ico" />
+              Grab on PumpSwap
+            </a>
+            <a class="btn btn-cream btn-lg" data-link="chart" href="https://dexscreener.com/solana" target="_blank" rel="noopener">
+              <img src="icons/dexscreener.svg" alt="" class="btn-ico" />
+              Open Chart
+            </a>
+          </div>
+          <div class="hero-pills">
+            <span class="pill">
+              <img src="icons/solana.svg" alt="" />
+              Solana
+            </span>
+            <span class="pill">Name caton</span>
+            <span class="pill">Symbol caton</span>
+          </div>
+        </div>
+      </div>
+      <div class="ticker-rail" aria-hidden="true">
+        <div class="ticker-track" id="ticker-track"></div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section-head reveal">
+        <p class="kicker">The handoff</p>
+        <h2>About $caton</h2>
+        <p class="section-lead">A cream-coat sprinter with a green baton and zero interest in waiting for the whistle.</p>
+      </div>
+      <div class="story-path">
+        <div class="path-line" aria-hidden="true"></div>
+        <article class="story-card reveal">
+          <span class="story-idx">01</span>
+          <h3>The swipe</h3>
+          <p>The baton hit the dirt. Other runners argued about whose turn it was. caton did not file a complaint. One paw, one grip, race already over for everyone else.</p>
+        </article>
+        <article class="story-card reveal delay-1">
+          <span class="story-idx">02</span>
+          <h3>The sprint</h3>
+          <p>Mint hills blurred. Paw prints stacked into a trail. The orange coat stayed low, the white baton stayed high, and the finish line kept moving because Solana does not sit still.</p>
+        </article>
+        <article class="story-card reveal delay-2">
+          <span class="story-idx">03</span>
+          <h3>The chain</h3>
+          <p>No committee. No warm-up lap. caton ran the baton straight onto Solana and left the rest of the track wondering who just passed them.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="howto" id="howtobuy">
+      <div class="section-head reveal">
+        <p class="kicker">Four stations</p>
+        <h2>How to Buy</h2>
+        <p class="section-lead">Treat it like a relay. Take the baton at each station and keep moving.</p>
+      </div>
+      <ol class="stations">
+        <li class="station reveal">
+          <div class="station-ico">
+            <img src="icons/phantom.svg" alt="Phantom" />
+          </div>
+          <h3>Open a wallet</h3>
+          <p>Install Phantom and create a Solana wallet. That is your starting block.</p>
+          <a class="station-link" href="https://phantom.app" target="_blank" rel="noopener">Get Phantom</a>
+        </li>
+        <li class="station reveal delay-1">
+          <div class="station-ico sol-ico">
+            <img src="icons/solana.svg" alt="Solana" />
+          </div>
+          <h3>Fund with SOL</h3>
+          <p>Send SOL to the wallet. Gas, swap, and the run all start from here.</p>
+        </li>
+        <li class="station reveal delay-2">
+          <div class="station-ico">
+            <img src="icons/pumpswap.svg" alt="PumpSwap" />
+          </div>
+          <h3>Swap into $caton</h3>
+          <p>Open PumpSwap, paste the contract, and take the handoff. Slippage is yours to set.</p>
+          <a class="station-link" data-link="buy" href="https://swap.pump.fun" target="_blank" rel="noopener">Open PumpSwap</a>
+        </li>
+        <li class="station reveal delay-3">
+          <div class="station-ico">
+            <img src="icons/dexscreener.svg" alt="DexScreener" />
+          </div>
+          <h3>Watch the tape</h3>
+          <p>Confirm the pair on DexScreener and keep the baton. The cat is already moving.</p>
+          <a class="station-link" data-link="chart" href="https://dexscreener.com/solana" target="_blank" rel="noopener">Open DexScreener</a>
+        </li>
+      </ol>
+    </section>
+
+    <section class="chart" id="chart">
+      <div class="section-head reveal">
+        <p class="kicker">Live pair</p>
+        <h2>Chart</h2>
+        <p class="section-lead">DexScreener only. Solana pair, no extra widgets.</p>
+      </div>
+      <div class="chart-shell reveal">
+        <div class="chart-glow" aria-hidden="true"></div>
+        <iframe
+          id="dex-frame"
+          title="caton DexScreener chart"
+          src="https://dexscreener.com/solana?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=light&theme=light&chartStyle=0&chartType=usd&interval=15"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="join" id="joinus">
+      <div class="section-head reveal">
+        <p class="kicker">The pack</p>
+        <h2>Join Us</h2>
+        <p class="section-lead">Same cream field. Same green baton. Come run it.</p>
+      </div>
+      <figure class="banner-frame reveal">
+        <img src="banner.png" alt="caton banner" />
+      </figure>
+      <div class="join-links reveal">
+        <a class="join-card" data-link="x" href="https://x.com/catonmeme" target="_blank" rel="noopener">
+          <span class="join-ico">
+            <img src="icons/x.svg" alt="" />
+          </span>
+          <span class="join-meta">
+            <strong>X</strong>
+            <small>@catonmeme</small>
+          </span>
+        </a>
+        <a class="join-card" data-link="chart" href="https://dexscreener.com/solana" target="_blank" rel="noopener">
+          <span class="join-ico">
+            <img src="icons/dexscreener.svg" alt="" />
+          </span>
+          <span class="join-meta">
+            <strong>DexScreener</strong>
+            <small>Solana chart</small>
+          </span>
+        </a>
+        <a class="join-card" data-link="buy" href="https://swap.pump.fun" target="_blank" rel="noopener">
+          <span class="join-ico">
+            <img src="icons/pumpswap.svg" alt="" />
+          </span>
+          <span class="join-meta">
+            <strong>PumpSwap</strong>
+            <small>Buy $caton</small>
+          </span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-brand">
+      <img src="logo.png" alt="" />
+      <div>
+        <strong>caton</strong>
+        <span>$caton on Solana</span>
+      </div>
+    </div>
+    <p>The cat that grabbed the baton and ran straight onto Solana.</p>
+    <div class="foot-links">
+      <a href="https://x.com/catonmeme" target="_blank" rel="noopener">X</a>
+      <a data-link="chart" href="https://dexscreener.com/solana" target="_blank" rel="noopener">DexScreener</a>
+      <a data-link="buy" href="https://swap.pump.fun" target="_blank" rel="noopener">PumpSwap</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
